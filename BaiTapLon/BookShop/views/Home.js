@@ -1,10 +1,13 @@
-import { View, Text } from 'react-native'
+import { View, Text,  TouchableOpacity,StyleSheet } from 'react-native'
 import React from 'react'
 
-const Home = () => {
+const Home = ({navigation}) => {
   return (
-    <View>
-      <Text>Home</Text>
+    <View style={{flex:1,alignItems:'center',alignContent:'center',justifyContent:'center'}}>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate('Cart')}>
+          <Text>Next</Text>
+        </TouchableOpacity>
     </View>
   )
 }
