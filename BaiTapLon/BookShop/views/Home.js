@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 
@@ -49,6 +50,18 @@ const Home = () => {
         renderItem={ItemBox}   
       />
         
+=======
+import { View, Text,  TouchableOpacity,StyleSheet } from 'react-native'
+import React from 'react'
+
+const Home = ({navigation}) => {
+  return (
+    <View style={{flex:1,alignItems:'center',alignContent:'center',justifyContent:'center'}}>
+        <TouchableOpacity 
+        onPress={() => navigation.navigate('Cart')}>
+          <Text>Next</Text>
+        </TouchableOpacity>
+>>>>>>> c88e8d6dc78525b3d470ef0c17436926c1a630d1
     </View>
   )
 }
