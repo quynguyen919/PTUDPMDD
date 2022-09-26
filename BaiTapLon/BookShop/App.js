@@ -9,30 +9,43 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DetailBook from './views/DetailBook';
 import { COLOURS } from './Coler';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 function HomeNavigatorScreen() {
   const HomeNavigator = createNativeStackNavigator();
   return (
     <HomeNavigator.Navigator
-      initialRouteName='Home'>
+      initialRouteName='Home'
+      >
       <HomeNavigator.Screen name='Home' component={Home} />
       <HomeNavigator.Screen name='DetailBook' component={DetailBook} />
+      <HomeNavigator.Screen name="Cart" component={Cart} />
     </HomeNavigator.Navigator>
   );
 }
 
 export default function App({ navigation }) {
-  // const Stack = createNativeStackNavigator();
   const Drawer = createDrawerNavigator();
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Home" component={Home} />
-        <Tab.Screen name="Cart" component={Cart} />
+      <Tab.Navigator
+      screenOptions={{
+        headerShown:false
+      }}
+      >
+        <Tab.Screen name="HomeScree" component={HomeNavigatorScreen} 
+        options = {{tabBarIcon: ({size}) => ( <Ionicons name = 'home' color = 'blue' size={size} />)}}
+        />
+        <Tab.Screen name="CartScreen" component={Cart} initialRouteName='Cart'
+          options={{
+            headerShown:true,
+            tabBarIcon: ({size}) => ( <Ionicons name = 'cart' color = 'blue' size={size} />)
+          }}
+        />
       </Tab.Navigator>
-      <Drawer.Navigator >
+      {/* <Drawer.Navigator >
         <Drawer.Screen name="HomeScreen" component={HomeNavigatorScreen} 
         options={{
           title: 'Home', 
@@ -43,7 +56,7 @@ export default function App({ navigation }) {
           title: 'Cart',
         }}
         />
-      </Drawer.Navigator>
+      </Drawer.Navigator> */}
       {/* <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#010101" translucent = {true}/>
       <Stack.Navigator
         screenOptions={{
