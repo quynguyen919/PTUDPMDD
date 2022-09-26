@@ -9,6 +9,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import DetailBook from './views/DetailBook';
 import { COLOURS } from './Coler';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 function HomeNavigatorScreen() {
@@ -34,10 +35,21 @@ export default function App({ navigation }) {
         headerShown:false
       }}
       >
-        <Tab.Screen name="HomeScree" component={HomeNavigatorScreen} />
+        <Tab.Screen name="HomeScreen" component={HomeNavigatorScreen} 
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ size }) => (
+            <Ionicons name="home" color='grey' size={size} />
+          ),
+        }}
+        />
         <Tab.Screen name="CartScreen" component={Cart} initialRouteName='Cart'
           options={{
-            headerShown:true
+            headerShown:true,
+            tabBarLabel: 'Cart',
+            tabBarIcon: ({ size }) => (
+            <Ionicons name="cart" color='grey' size={size} />
+          ),
           }}
         />
       </Tab.Navigator>
