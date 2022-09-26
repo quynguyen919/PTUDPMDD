@@ -35,13 +35,21 @@ export default function App({ navigation }) {
         headerShown:false
       }}
       >
-        <Tab.Screen name="HomeScree" component={HomeNavigatorScreen} 
-        options = {{tabBarIcon: ({size}) => ( <Ionicons name = 'home' color = 'blue' size={size} />)}}
+        <Tab.Screen name="HomeScreen" component={HomeNavigatorScreen} 
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({ size }) => (
+            <Ionicons name="home" color='grey' size={size} />
+          ),
+        }}
         />
         <Tab.Screen name="CartScreen" component={Cart} initialRouteName='Cart'
           options={{
             headerShown:true,
-            tabBarIcon: ({size}) => ( <Ionicons name = 'cart' color = 'blue' size={size} />)
+            tabBarLabel: 'Cart',
+            tabBarIcon: ({ size }) => (
+            <Ionicons name="cart" color='grey' size={size} />
+          ),
           }}
         />
       </Tab.Navigator>
