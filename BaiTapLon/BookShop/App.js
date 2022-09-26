@@ -28,10 +28,10 @@ export default function App({ navigation }) {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      {/* <Tab.Navigator>
+      <Tab.Navigator>
         <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Cart" component={Cart} />
-      </Tab.Navigator> */}
+      </Tab.Navigator>
       <Drawer.Navigator >
         <Drawer.Screen name="HomeScreen" component={HomeNavigatorScreen} 
         options={{
