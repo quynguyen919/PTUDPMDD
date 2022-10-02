@@ -1,66 +1,86 @@
 import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
+import { COLOURS } from '../Coler';
 
-const item = [
-  {id : 1, name: "Tôi thấy hoa Vàng trên cỏ xanh", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_1.png')},
-  {id : 2, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png')},
+const items = [
+  { id: 1, name: "Tôi thấy hoa Vàng trên cỏ xanh", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_1.png') },
+  { id: 2, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
+  { id: 3, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
+  { id: 4, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
 ]
 
-// function ListItemScreen(pops){
-//   return(
-    
-//     )
-// }
-
-
-
-const Home = ({navigation}) => {
+const Home = ({ navigation }) => {
   const HeaderComponent = () => {
-    return(
-      <View style={[{ flex: 1}]}>
+    return (
+      <View style={[{ flex: 1 }]}>
         <Text style={styles.title}>Sách</Text>
       </View>
     );
   };
-  
+
   const ItemSeperator = () => {
-    return(
+    return (
       <View style={styles.seperator} />
     )
   };
-  
-  const ItemBox = ({item}) => (
-    <TouchableOpacity onPress={() => navigation.navigate('DetailBook')}>
+
+  const ItemBox = ({ item }) => (
+    <TouchableOpacity onPress={() => navigation.navigate('DetailBook')}
+    style={{
+          width: '50%',
+          alignItems:'center',
+          // marginVertical: 14,
+          backgroundColor:'green'
+    }}
+    >
       <View style={styles.product}>
-      <Image style={styles.img_prod} source={item.image} />
-      <View style={styles.prod_details}>
-        <TouchableOpacity>
-          <Text style={styles.prod_name}>{item.name}</Text>
-        </TouchableOpacity>
-        <Text style={styles.prod_price}>{item.price}</Text>
+        <Image style={styles.img_prod} source={item.image} />
+        <View style={styles.prod_details}>
+          <TouchableOpacity>
+            <Text style={styles.prod_name}>{item.name}</Text>
+          </TouchableOpacity>
+          <Text style={styles.prod_price}>{item.price}</Text>
+        </View>
       </View>
-    </View>
     </TouchableOpacity>
   );
   return (
-    <View style={styles.list}>
-      <FlatList 
+    <View style={styles.container}>
+      <View
+        style={{
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+          justifyContent: 'space-around',
+          backgroundColor:'red',
+          flex:1
+        }}>
+        {/* {items.map(data => {
+          return <ItemBox data={data} key={data.id} />;
+        })} */}
+        <FlatList
         ListHeaderComponent={HeaderComponent}
         ItemSeperatorComponent={ItemSeperator}
         keyExtractor={(item, index) => index}
-        data={item}
-        renderItem={ItemBox}   
+        data={items}
+        renderItem={ItemBox}
+        numColumns={2}
       />
-        
+      </View>
+
     </View>
   )
 }
 
 export default Home
 
-
 const styles = StyleSheet.create({
-  
+  container: {
+    flex:1,
+    // width: '100%',
+    // height: '100%',
+    // backgroundColor: COLOURS.green,
+  },
+
   title: {
     fontSize: 30,
     fontWeight: "bold",
@@ -104,5 +124,4 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: "black",
   },
-  
 });
