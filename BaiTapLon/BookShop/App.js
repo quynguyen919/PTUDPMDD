@@ -30,7 +30,7 @@ export default function App({ navigation }) {
   const Tab = createBottomTabNavigator();
   return (
     <NavigationContainer>
-      <Tab.Navigator
+      {/* <Tab.Navigator
       screenOptions={{
         headerShown:false
       }}
@@ -38,8 +38,8 @@ export default function App({ navigation }) {
         <Tab.Screen name="HomeScreen" component={HomeNavigatorScreen} 
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ size }) => (
-            <Ionicons name="home" color='grey' size={size} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} />
           ),
         }}
         />
@@ -47,13 +47,13 @@ export default function App({ navigation }) {
           options={{
             headerShown:true,
             tabBarLabel: 'Cart',
-            tabBarIcon: ({ size }) => (
-            <Ionicons name="cart" color='grey' size={size} />
+            tabBarIcon: ({ color,size }) => (
+            <Ionicons name="cart" color={color} size={size} />
           ),
           }}
         />
-      </Tab.Navigator>
-      {/* <Drawer.Navigator >
+      </Tab.Navigator> */}
+      <Drawer.Navigator >
         <Drawer.Screen name="HomeScreen" component={HomeNavigatorScreen} 
         options={{
           title: 'Home', 
@@ -64,7 +64,7 @@ export default function App({ navigation }) {
           title: 'Cart',
         }}
         />
-      </Drawer.Navigator> */}
+      </Drawer.Navigator>
       {/* <StatusBar barStyle = "dark-content" hidden = {false} backgroundColor = "#010101" translucent = {true}/>
       <Stack.Navigator
         screenOptions={{
