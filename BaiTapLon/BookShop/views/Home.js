@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet,Dimensions } from 'react-native'
 import React from 'react'
 import { COLOURS } from '../Coler';
 
@@ -25,13 +25,14 @@ const Home = ({ navigation }) => {
   };
 
   const ItemBox = ({ item }) => (
-    <TouchableOpacity onPress={() => navigation.navigate('DetailBook')}
-    style={{
-          width: '50%',
-          alignItems:'center',
-          // marginVertical: 14,
-          backgroundColor:'green'
-    }}
+    <TouchableOpacity
+      onPress={() => navigation.navigate('DetailBook')}
+      style={{
+        width: '50%',
+        alignItems: 'center',
+        // marginVertical: 14,
+        backgroundColor: 'green'
+      }}
     >
       <View style={styles.product}>
         <Image style={styles.img_prod} source={item.image} />
@@ -49,22 +50,53 @@ const Home = ({ navigation }) => {
       <View
         style={{
           flexDirection: 'row',
-          flexWrap: 'wrap',
+          alignItems:'center',
+          // flexWrap: 'wrap',
           justifyContent: 'space-around',
-          backgroundColor:'red',
-          flex:1
+          backgroundColor: 'red',
+          // flex: 1
         }}>
         {/* {items.map(data => {
           return <ItemBox data={data} key={data.id} />;
         })} */}
-        <FlatList
+        {/* <FlatList
         ListHeaderComponent={HeaderComponent}
         ItemSeperatorComponent={ItemSeperator}
         keyExtractor={(item, index) => index}
         data={items}
         renderItem={ItemBox}
         numColumns={2}
-      />
+      /> */}
+
+        {
+          items.map(item => (
+            <TouchableOpacity
+              key={item.id}
+              onPress={() => navigation.navigate('DetailBook')}
+              style={{
+                width:Dimensions.get('window').width,
+                flexDirection:"row",
+                justifyContent:'center',
+                width: '50%',
+                alignItems: 'center',
+                padding:10,
+                justifyContent:'center',
+                marginVertical: 14,
+                backgroundColor: 'green'
+              }}
+            >
+              <View style={styles.product}>
+                <Image style={styles.img_prod} sourcree={item.image} />
+                <View style={styles.prod_details}>
+                  <TouchableOpacity>
+                    <Text style={styles.prod_name}>{item.name}</Text>
+                  </TouchableOpacity>
+                  <Text style={styles.prod_price}>{item.price}</Text>
+                </View>
+              </View>
+            </TouchableOpacity>
+          ))
+        }
       </View>
 
     </View>
@@ -75,7 +107,8 @@ export default Home
 
 const styles = StyleSheet.create({
   container: {
-    flex:1,
+    flex: 1,
+    justifyContent:'flex-start'
     // width: '100%',
     // height: '100%',
     // backgroundColor: COLOURS.green,
