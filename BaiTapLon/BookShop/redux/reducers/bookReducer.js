@@ -90,7 +90,7 @@ export default (state = initialState, action) => {
                 books: new_Book,
             };
         default:
-            // AsyncStorage.setItem('bookItems', JSON.stringify(state.books));
+             //AsyncStorage.setItem('bookItems', JSON.stringify(state.books));
             return state;
     }
 };

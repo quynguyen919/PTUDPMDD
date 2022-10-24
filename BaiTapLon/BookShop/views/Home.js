@@ -6,7 +6,8 @@ const items = [
   { id: 1, name: "Tôi thấy hoa Vàng trên cỏ xanh", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_1.png') },
   { id: 2, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
   { id: 3, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
-  { id: 4, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },
+  { id: 4, name: "Cho tôi xin một Vé đi tuổi thơ", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_2.png') },  
+
 ]
 
 const Home = ({ navigation }) => {
@@ -31,11 +32,11 @@ const Home = ({ navigation }) => {
         width: '50%',
         alignItems: 'center',
         // marginVertical: 14,
-        backgroundColor: 'green'
+        // backgroundColor: 'green'
       }}
     >
       <View style={styles.product}>
-        <Image style={styles.img_prod} source={item.image} />
+        <Image style={styles.img_prod} source={{uri: item.image}} />
         <View style={styles.prod_details}>
           <TouchableOpacity>
             <Text style={styles.prod_name}>{item.name}</Text>
@@ -47,13 +48,15 @@ const Home = ({ navigation }) => {
   );
   return (
     <View style={styles.container}>
+      <View>
+        
+      </View>
       <View
         style={{
           flexDirection: 'row',
-          alignItems:'center',
-          // flexWrap: 'wrap',
+          flexWrap: 'wrap',
           justifyContent: 'space-around',
-          backgroundColor: 'red',
+          // backgroundColor: 'red',
           // flex: 1
         }}>
         {/* {items.map(data => {
@@ -74,7 +77,7 @@ const Home = ({ navigation }) => {
               key={item.id}
               onPress={() => navigation.navigate('DetailBook')}
               style={{
-                width:Dimensions.get('window').width,
+                width: "100%",
                 flexDirection:"row",
                 justifyContent:'center',
                 width: '50%',
@@ -82,11 +85,11 @@ const Home = ({ navigation }) => {
                 padding:10,
                 justifyContent:'center',
                 marginVertical: 14,
-                backgroundColor: 'green'
+                // backgroundColor: 'green'
               }}
             >
               <View style={styles.product}>
-                <Image style={styles.img_prod} sourcree={item.image} />
+                <Image style={styles.img_prod} source={{uri: item.image}} />
                 <View style={styles.prod_details}>
                   <TouchableOpacity>
                     <Text style={styles.prod_name}>{item.name}</Text>
@@ -108,7 +111,8 @@ export default Home
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'flex-start'
+    justifyContent:'flex-start',
+    width: '100%',
     // width: '100%',
     // height: '100%',
     // backgroundColor: COLOURS.green,
@@ -134,7 +138,8 @@ const styles = StyleSheet.create({
     margin: 10,
     border: "1px solid black",
     borderRadius: 10,
-    width: 150,
+    width: 'auto',
+    height: 300,
   },
   img_prod: {
     width: 100,
@@ -151,10 +156,11 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "bold",
     color: "black",
-    width: 150,
+    width: 'auto',
   },
   prod_price: {
     fontSize: 13,
     color: "black",
+    justifyContent: 'flex-end',
   },
 });

@@ -91,8 +91,8 @@ export default function App() {
         <Tab.Screen name="HomeScreen" component={HomeNavigatorScreen} 
         options={{
           tabBarLabel: 'Home',
-          tabBarIcon: ({ size }) => (
-            <Ionicons name="home" color='grey' size={size} />
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="home" color={color} size={size} />
           ),
         }}
         />
@@ -100,8 +100,8 @@ export default function App() {
           options={{
             headerShown:true,
             tabBarLabel: 'Cart',
-            tabBarIcon: ({ size }) => (
-            <Ionicons name="cart" color='grey' size={size} />
+            tabBarIcon: ({ color,size }) => (
+            <Ionicons name="cart" color={color} size={size} />
           ),
           }}
         />
