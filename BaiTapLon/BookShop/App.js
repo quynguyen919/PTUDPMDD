@@ -42,6 +42,9 @@ function AdminBookNavigatorScreen() {
   return (
     <AdminBookNavigator.Navigator
       initialRouteName='AdminBook'
+      screenOptions={{
+        headerShown:false
+      }}
     >
       <AdminBookNavigator.Screen name='AllBooks' component={AllBooks}
         options={{

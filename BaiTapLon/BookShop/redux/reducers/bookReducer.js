@@ -71,7 +71,7 @@ export default (state = initialState, action) => {
                     book.nameBook = action.payload.nameBook;
                     // book.category = action.payload.category;
                     book.price = action.payload.price;
-                    book.descriptionBook = action.payload.description;
+                    book.descriptionBook = action.payload.descriptionBook;
                     // book.photoBook = require('../../images/'+{photo}+'.jpg') ;
                     book.author=action.payload.author;
                 }
@@ -90,7 +90,7 @@ export default (state = initialState, action) => {
                 books: new_Book,
             };
         default:
-            // AsyncStorage.setItem('bookItems', JSON.stringify(state.books));
-            return state;
+            AsyncStorage.setItem('bookItems', JSON.stringify([...state.books]));
+            return {...state};
     }
 };
