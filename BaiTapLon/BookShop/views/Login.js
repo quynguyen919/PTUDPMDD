@@ -11,12 +11,18 @@ const Login = ({ navigation }) => {
             behavior="padding"
             keyboardVerticalOffset={10}
         >
+            <View style={styles.content}>
+                <View style={styles.textContent}>
+                    <Text style={styles.h2text}>Login</Text>
+                </View>
+            </View>
             <View styles={styles.inputContainer}>
                 <TextInput
                     placehalder="Email"
                     style={styles.input}
                     onChangeText={text => setEmail(text)}
                     value={email}
+                    placeholderTextColor={COLOURS.grey}
                 />
                 <TextInput
                     placehalder="Password"
@@ -24,6 +30,7 @@ const Login = ({ navigation }) => {
                     onChangeText={text => setPassword(text)}
                     value={password}
                     secureTextEntry
+                    placeholderTextColor={COLOURS.grey}
                 />
             </View>
             <View style={styles.buttonContainer}>
@@ -51,10 +58,19 @@ const styles = StyleSheet.create({
         backgroundColor: COLOURS.red,
         justifyContent: 'center',
         alignItems:'center',
+        
     },
     inputContainer: {
         width: '80%'
     },
+    textContent: {
+        alignItems: "center",
+        justifyContent: "center",
+        width: "100%",
+      },
+      content: {
+        flex: 1,
+      },
     input: {
         backgroundColor: 15,
         paddingHorizontal: 15,
@@ -69,19 +85,21 @@ const styles = StyleSheet.create({
         width: '100%',
         justifyContent: 'center',
         alignItems: 'center',
-        marginTop: 40
+        marginTop: 40,
+        flexDirection: 'row',
+        justifyContent: 'space-between'
     },
     button: {
         backgroundColor: '#0782f9',
-        width: '100%',
+        width: '30%',
         padding: 15,
         borderRadius: 10,
         alignItems: 'center'
     },
     buttonText: {
         color: 'white',
-        fontVariant: '700',
-        fontSize: 16
+        // fontVariant: '700',
+        fontSize: 20
     },
     buttonOutLine: {
         backgroundColor: 'white',

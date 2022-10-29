@@ -1,23 +1,23 @@
 import { StyleSheet, Text, View, TextInput, TouchableOpacity } from 'react-native'
 import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
-import { createBook } from '../redux/actions/bookAction';
-const CreateBook = ({ navigation }) => {
+import { updateBook } from '../../../redux/actions/bookAction';
+const EditBook = ({route, navigation }) => {
   const dispatch = useDispatch();
-
+  const {book} = route.params;
   // // const tags = useSelector((state) => state.tag.tags);
 
-  const [id, setId] = useState(0)
-  const [nameBook, setNameBook] = useState("")
-  const [author, setAuthor] = useState("")
-  const [price, setPrice] = useState(0)
-  const [descriptionBook, setDescriptionBook] = useState("")
-  const [photoBook, setPhotoBook] = useState("")
+  const [id, setId] = useState(book.id)
+  const [nameBook, setNameBook] = useState(book.nameBook)
+  const [author, setAuthor] = useState(book.author)
+  const [price, setPrice] = useState(book.price)
+  const [descriptionBook, setDescriptionBook] = useState(book.descriptionBook)
+  const [photoBook, setPhotoBook] = useState(book.photoBook)
 
-  const handleAddBook = () => {
+  const handleEditBook = () => {
     // let newBook=
     // spy-x-family-tap-1
-    dispatch(createBook({
+    dispatch(updateBook({
       id: parseInt(id),
       nameBook: nameBook,
       // category: action.payload.category,
@@ -25,7 +25,6 @@ const CreateBook = ({ navigation }) => {
       price: parseInt(price),
       descriptionBook:descriptionBook,
       photoBook: photoBook,
-
     }));
     // navigation.goBack()
     // console.log(newBook)
@@ -42,36 +41,45 @@ const CreateBook = ({ navigation }) => {
           <TextInput 
           placeholder="ID" 
           style={styles.inputText}
-          onChangeText={(id)=>setId(id)} />
+          onChangeText={(id)=>setId(id)} 
+            value={id}
+          />
         </View>
         <View style={styles.inputContainer}>
           <TextInput placeholder="Name" style={styles.inputText}
-          onChangeText={(nameBook)=>setNameBook(nameBook)} />
+          onChangeText={(nameBook)=>setNameBook(nameBook)} 
+            value={nameBook}
+          />
         </View>
         <View style={styles.inputContainer}>
           <TextInput placeholder="Author" style={styles.inputText} 
             onChangeText={(author)=>setAuthor(author)}
+            value={author}
           />
         </View>
         <View style={styles.inputContainer}>
           <TextInput placeholder="Image" style={styles.inputText}
-          onChangeText={(photoBook)=>setPhotoBook(photoBook)} />
+          onChangeText={(photoBook)=>setPhotoBook(photoBook)} 
+            value={photoBook}
+          />
         </View>
         {/* <View style={styles.inputContainer}>
           <TextInput placeholder="Category" style={styles.inputText} />
         </View> */}
         <View style={styles.inputContainer}>
           <TextInput placeholder="Description" style={styles.inputText}
-          onChangeText={(descriptionBook)=>setDescriptionBook(descriptionBook)} />
+          onChangeText={(descriptionBook)=>setDescriptionBook(descriptionBook)}
+          value={descriptionBook} />
         </View>
         <View style={styles.inputContainer}>
           <TextInput placeholder="Price" style={styles.inputText} 
             onChangeText={(price)=>setPrice(price)}
+            value={price}
           />
         </View>
 
         <View style={styles.btnContainer}>
-          <TouchableOpacity style={styles.btnSubmit} onPress={()=>handleAddBook()}>
+          <TouchableOpacity style={styles.btnSubmit} onPress={()=>handleEditBook()}>
             <Text style={styles.btnText}>Submit </Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.btnCancel} onPress={()=>handleCancel()}>
@@ -83,7 +91,7 @@ const CreateBook = ({ navigation }) => {
   )
 }
 
-export default CreateBook
+export default EditBook
 
 const styles = StyleSheet.create({
   CRUDContainer: {

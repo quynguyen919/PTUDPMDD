@@ -5,7 +5,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Surface, Title, TextInput } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { delteBook } from '../redux/actions/bookAction';
+import { delteBook } from '../../../redux/actions/bookAction';
 
 const AllBooks = ({ navigation }) => {
     // const books = useSelector((state) => state.book.books);
@@ -29,7 +29,7 @@ const AllBooks = ({ navigation }) => {
         //     routes: [{ name: 'AllBooks' }],
         //   });
         // navigation.replace("AllBooks");
-        dispatch(delteBook({id:parseInt(id)}));
+        // dispatch(delteBook({id:parseInt(id)}));
         // getDataFromDB();
         // navigation.navigate
         // console.log(id)
