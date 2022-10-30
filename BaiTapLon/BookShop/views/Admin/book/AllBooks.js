@@ -5,18 +5,16 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Surface, Title, TextInput } from 'react-native-paper';
 import { Card } from 'react-native-paper';
 import Icon from 'react-native-vector-icons/FontAwesome'
-import { delteBook } from '../redux/actions/bookAction';
+import { delteBook } from '../../../redux/actions/bookAction';
 
 const AllBooks = ({ navigation }) => {
     // const books = useSelector((state) => state.book.books);
     // const [search, setSearch] = React.useState("");
     const dispatch = useDispatch();
     useEffect(() => {
-        const unsubscribe = navigation.addListener('focus', () => {
-            getDataFromDB();
-        });
-        return unsubscribe;
-    }, [navigation]);
+        getDataFromDB();
+
+    });
 
     const [books, setBooks] = useState();
 
@@ -26,9 +24,13 @@ const AllBooks = ({ navigation }) => {
         setBooks(items);
     };
     const handleDeleteBook=(id)=>{
-        dispatch(delteBook({id:parseInt(id)}));
+        // navigation.reset({
+        //     index: 0,
+        //     routes: [{ name: 'AllBooks' }],
+        //   });
+        // navigation.replace("AllBooks");
+        // dispatch(delteBook({id:parseInt(id)}));
         // getDataFromDB();
-        navigation.replace("AllBooks");
         // navigation.navigate
         // console.log(id)
       }
@@ -61,8 +63,8 @@ const AllBooks = ({ navigation }) => {
                     <FlatList
                         data={books}
                         keyExtractor={(item, index) => item.id + index.toString()}
-                        refreshing={false}
-                        onRefresh={books}
+                        // refreshing={false}
+                        // onRefresh={books}
                         renderItem={({ item }) => (
                             <Card style={styles.item}>
                                 <View style={styles.rowView}>

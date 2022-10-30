@@ -5,7 +5,16 @@ export const COLOURS = {
     green: '#00AC76',
     red: '#C04345',
     blue: '#0043F9',
-    backgroundLight: '#f5f5f5',
-    // backgroundMedium: '#B9B9B9',
-    backgroundDark: '#c2c2c2',
+    background: '#fffafa',
+
+    // buton
+    btnLogin:'#3AB0FF',
+    btnRegister:'#3AB0FF',
+    btnBuy:'#5FD068',
+    btnSubmit:'#5FD068',
+    btnCancel:'#C21010',
+
+    // text
+    textBtn:'#fff',
+    textInput:'#000'
   };

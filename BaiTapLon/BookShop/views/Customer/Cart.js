@@ -11,7 +11,7 @@ import {
 import React, 
 { useState, useEffect } from 'react';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { COLOURS } from '../Coler';
+import { COLOURS } from '../../Coler';
 // import { items } from '../data/Database';
 
 let items = [
@@ -22,7 +22,7 @@ let items = [
     price: 198100,
     descriptionBook:
       'Up to 20 hours battery life ',
-      photoBook: require('../images/LamBanVoiBauTroi.jpg'),
+      photoBook: require('../../images/LamBanVoiBauTroi.jpg'),
     quantityBuy: 1,
     isDiscount:false,
     percent: 0
@@ -34,7 +34,7 @@ let items = [
     price: 78000,
     descriptionBook:
       'Up to 20 hours battery life ',
-      photoBook: require('../images/ban-ve-van-minh.jpg'),
+      photoBook: require('../../images/ban-ve-van-minh.jpg'),
     quantityBuy: 1,
     isDiscount:true,
     percent: 20
@@ -46,7 +46,7 @@ let items = [
     price: 110000,
     descriptionBook:
       'Up to 20 hours battery life ',
-      photoBook: require('../images/xa-hoi-viet-nam.jpg'),
+      photoBook: require('../../images/xa-hoi-viet-nam.jpg'),
     quantityBuy: 1,
     isDiscount:false,
     percent: 0
@@ -58,7 +58,7 @@ let items = [
     price: 50000,
     descriptionBook:
       'Up to 20 hours battery life ',
-    photoBook: require('../images/soivsGiavi9.jpg'),
+    photoBook: require('../../images/soivsGiavi9.jpg'),
     quantityBuy: 1,
     isDiscount:true,
     percent: 20

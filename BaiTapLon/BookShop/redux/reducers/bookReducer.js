@@ -59,7 +59,7 @@ export default (state = initialState, action) => {
                 author:action.payload.author,
                  }
             // console.log(newBook);
-            AsyncStorage.setItem('bookItems', JSON.stringify([...state.books, newBook]));
+            // AsyncStorage.setItem('bookItems', JSON.stringify([...state.books, newBook]));
             return {
                 ...state,
                 books: [...state.books,newBook],
@@ -71,13 +71,13 @@ export default (state = initialState, action) => {
                     book.nameBook = action.payload.nameBook;
                     // book.category = action.payload.category;
                     book.price = action.payload.price;
-                    book.descriptionBook = action.payload.description;
+                    book.descriptionBook = action.payload.descriptionBook;
                     // book.photoBook = require('../../images/'+{photo}+'.jpg') ;
                     book.author=action.payload.author;
                 }
             }
             )
-            AsyncStorage.setItem('bookItems', JSON.stringify([...state.books]));
+            // AsyncStorage.setItem('bookItems', JSON.stringify([...state.books]));
             return {
                 ...state,
                 books: [...state.books],
