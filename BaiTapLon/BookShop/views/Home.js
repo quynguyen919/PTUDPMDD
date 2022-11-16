@@ -1,6 +1,7 @@
-import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet,Dimensions } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity, StyleSheet,Dimensions, TextInput } from 'react-native'
 import React from 'react'
 import { COLOURS } from '../Coler';
+import  IonIcons  from 'react-native-vector-icons/IonIcons';
 
 const items = [
   { id: 1, name: "Tôi thấy hoa Vàng trên cỏ xanh", price: 190000, image: require('../assets/images/Nguyen_Nhat_Anh_1.png') },
@@ -49,7 +50,10 @@ const Home = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View>
-        
+      <View style={styles.inputContainer}>
+        <TextInput placeholder='   Search' style={styles.inputText}/>
+        <IonIcons name='search-circle' color='black' size={30} />
+      </View>
       </View>
       <View
         style={{
@@ -115,7 +119,7 @@ const styles = StyleSheet.create({
     width: '100%',
     // width: '100%',
     // height: '100%',
-    // backgroundColor: COLOURS.green,
+    // backgroundColor: "#863A6F"
   },
 
   title: {
@@ -163,4 +167,21 @@ const styles = StyleSheet.create({
     color: "black",
     justifyContent: 'flex-end',
   },
+  inputContainer: {
+    width: '100%',
+    marginBottom: 10,
+    // backgroundColor: 'white',
+    borderRadius: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+},
+inputText: {
+    borderBottomWidth: 3,
+    // borderBottomColor: '#d81b60',
+    paddingVertical:10,
+    color: '#000',
+    borderRadius: 10,
+    width: '70%',
+},
 });
