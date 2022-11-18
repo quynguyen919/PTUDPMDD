@@ -27,10 +27,7 @@ const Register = ({ navigation }) => {
                 </Text>
                 <View style={styles.formContainer}>
                     <View style={styles.inputContainer}>
-                        <TextInput placeholder='Họ và tên' style={styles.inputText}/>
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <TextInput placeholder='Email' style={styles.inputText}/>
+                        <TextInput placeholder='Username' style={styles.inputText}/>
                     </View>
                     
                     <View style={styles.inputContainer}>
@@ -39,38 +36,7 @@ const Register = ({ navigation }) => {
                     <View style={styles.inputContainer}>
                         <TextInput placeholder='Xác nhận mật khẩu' style={styles.inputText}/>
                     </View>
-                    <View style={{flexDirection: 'row', flexWrap: 'wrap'}}>
-                        <View style={{width: '40%',
-                            marginBottom: 10,
-                            backgroundColor: 'white',
-                            borderRadius: 10,
-                            }}>
-                            <TextInput placeholder='Giới tính' style={{
-                                borderBottomWidth: 3,
-                                borderBottomColor: '#d81b60',
-                                paddingVertical:10,
-                                color: '#000',
-                                borderRadius: 10,
-                                paddingLeft: 10,
-                                }}/>
-                        </View>
-                        <View style={{width: '40%',
-                            marginBottom: 10,
-                            backgroundColor: 'white',
-                            borderRadius: 10,
-                            marginLeft: 50,
-                            }}>
-                            <TextInput placeholder='Ngày sinh' style={styles.inputText}/>
-                        </View>
-                    </View>
-                    
-                    <View style={styles.inputContainer}>
-                        <TextInput placeholder='Địa chỉ' style={styles.inputText}/>
-                    </View>
-                    <View style={styles.inputContainer}>
-                        <TextInput placeholder='Số điện thoại' style={styles.inputText}/>
-                    </View>
-                    
+
                     <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("Login")}>
                         <Text style={styles.btnTxt} >Đăng ký</Text>
                     </TouchableOpacity>
