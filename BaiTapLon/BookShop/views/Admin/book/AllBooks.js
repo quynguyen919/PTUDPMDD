@@ -105,7 +105,7 @@ const AllBooks = ({ navigation }) => {
     )
 }
 
-export default AllBooks
+export default AllBooks;
 
 const styles = StyleSheet.create({
     container: {
