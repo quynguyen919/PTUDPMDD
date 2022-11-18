@@ -133,6 +133,25 @@ const AllBooks = ({ navigation }) => {
   );
 };
 
+<<<<<<< HEAD
+=======
+                                        <TouchableOpacity
+                                            onPress={() => handleDeleteBook(item.id) }
+                                        >
+                                            <Icon name="trash" size={30} color={"red"} />
+                                        </TouchableOpacity>
+                                    </View>
+                                </View>
+                            </Card>
+                        )}
+                    /> : null
+                }
+            </ScrollView>
+        </SafeAreaView>
+    )
+}
+
+>>>>>>> 06503ac890ae5b153cd9ee94e36d56efc73c7011
 export default AllBooks;
 
 const styles = StyleSheet.create({

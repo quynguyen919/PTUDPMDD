@@ -16,6 +16,7 @@ import EditCategory from './Admin/category/EditCategory';
 import AllBills from './Admin/bill/AllBills';
 import EditBill from './Admin/bill/EditBill';
 import Statistical from './Admin/Statistical'
+import EditProfile from './Customer/EditProfile'
 
 const CustomerNavigatorScreen=() =>{
     const CustomerNavigator = createDrawerNavigator();
@@ -29,9 +30,10 @@ const CustomerNavigatorScreen=() =>{
                 // }} 
 
                 />
+            <CustomerNavigator.Screen name='ManagerBookScreen' component={ManagerBookScreen} />
             <CustomerNavigator.Screen name='Profile' component={Profile} />
             <CustomerNavigator.Screen name="Cart" component={Cart} />
-            <CustomerNavigator.Screen name="HistoryBill" component={HistoryBill} />
+            {/* <CustomerNavigator.Screen name="HistoryBill" component={HistoryBill} /> */}
         </CustomerNavigator.Navigator>
     );
 }
@@ -44,6 +46,10 @@ const HomeNavigatorScreen=() =>{
         >
             <HomeNavigator.Screen name='Home' component={Home}/>
             <HomeNavigator.Screen name='DetailBook' component={DetailBook} />
+            <HomeNavigator.Screen name='HistoryBill' component={HistoryBill} />
+            <HomeNavigator.Screen name='EditProfile' component={EditProfile} />
+  
+
         </HomeNavigator.Navigator>
     );
 }
